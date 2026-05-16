@@ -28,17 +28,16 @@ class Picture:
         nuevaFila += self._invColor(c)
       nueva.append(nuevaFila)
     return Picture(nueva)
-
+  
   def join(self, p):
-    """ Devuelve una nueva figura poniendo la figura del argumento al lado derecho de la figura actual """
     nueva = []
     for i in range(len(self.img)):
-      nueva.append(self.img[i] + p.img[i])
+        nueva.append(self.img[i] + p.img[i])
     return Picture(nueva)
-
+  
   def up(self, p):
     return Picture(p.img + self.img)
-
+  
   def under(self, p):
     return Picture(self.img + p.img)
   
