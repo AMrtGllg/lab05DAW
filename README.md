@@ -12,3 +12,6 @@ Curso: Desarrollo de Aplicaciones Web
 - Python
 - pygame
 - virtualenv
+
+## Video Youtube
+https://www.youtube.com/watch?v=HpWaVVNyxfE 
