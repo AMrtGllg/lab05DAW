@@ -53,3 +53,20 @@ class Picture:
     for i in range(n):
       nueva += self.img
     return Picture(nueva)
+  
+  def overlay(self, p):
+    nueva = []
+
+    for i in range(len(self.img)):
+        fila = ""
+
+        for j in range(len(self.img[i])):
+
+            if p.img[i][j] == " ":
+                fila += self.img[i][j]
+            else:
+                fila += p.img[i][j]
+
+        nueva.append(fila)
+
+    return Picture(nueva)

@@ -1,50 +1,75 @@
 from interpreter import draw
 from chessPictures import *
 
+b = square
+n = square.negative()
 
-# fila negras
-fila1 = (
-    rock.negative()
-    .join(knight.negative())
-    .join(bishop.negative())
-    .join(queen.negative())
-    .join(king.negative())
-    .join(bishop.negative())
-    .join(knight.negative())
-    .join(rock.negative())
-)
-
-# peones negros
-fila2 = pawn.negative().horizontalRepeat(8)
-
-# filas vacías
-filaV1 = square.join(square.negative()).horizontalRepeat(4)
-filaV2 = square.negative().join(square).horizontalRepeat(4)
-
-centro = filaV1.under(filaV2).verticalRepeat(2)
-
-# peones blancos
-fila7 = pawn.horizontalRepeat(8)
-
-# fila blancas
+#negras
 fila8 = (
-    rock
-    .join(knight)
-    .join(bishop)
-    .join(queen)
-    .join(king)
-    .join(bishop)
-    .join(knight)
-    .join(rock)
+    n.overlay(rock.negative())
+    .join(b.overlay(knight.negative()))
+    .join(n.overlay(bishop.negative()))
+    .join(b.overlay(queen.negative()))
+    .join(n.overlay(king.negative()))
+    .join(b.overlay(bishop.negative()))
+    .join(n.overlay(knight.negative()))
+    .join(b.overlay(rock.negative()))
 )
 
-# tablero completo
+#peones negros
+fila7 = (
+    b.overlay(pawn.negative())
+    .join(n.overlay(pawn.negative()))
+    .join(b.overlay(pawn.negative()))
+    .join(n.overlay(pawn.negative()))
+    .join(b.overlay(pawn.negative()))
+    .join(n.overlay(pawn.negative()))
+    .join(b.overlay(pawn.negative()))
+    .join(n.overlay(pawn.negative()))
+)
+
+
+fila6 = b.join(n).horizontalRepeat(4)
+
+fila5 = n.join(b).horizontalRepeat(4)
+
+fila4 = b.join(n).horizontalRepeat(4)
+
+fila3 = n.join(b).horizontalRepeat(4)
+
+#peones blancos
+fila2 = (
+    n.overlay(pawn)
+    .join(b.overlay(pawn))
+    .join(n.overlay(pawn))
+    .join(b.overlay(pawn))
+    .join(n.overlay(pawn))
+    .join(b.overlay(pawn))
+    .join(n.overlay(pawn))
+    .join(b.overlay(pawn))
+)
+
+#blancas
+fila1 = (
+    b.overlay(rock)
+    .join(n.overlay(knight))
+    .join(b.overlay(bishop))
+    .join(n.overlay(queen))
+    .join(b.overlay(king))
+    .join(n.overlay(bishop))
+    .join(b.overlay(knight))
+    .join(n.overlay(rock))
+)
+
 tablero = (
-    fila1
-    .under(fila2)
-    .under(centro)
+    fila8
     .under(fila7)
-    .under(fila8)
+    .under(fila6)
+    .under(fila5)
+    .under(fila4)
+    .under(fila3)
+    .under(fila2)
+    .under(fila1)
 )
 
 draw(tablero)
